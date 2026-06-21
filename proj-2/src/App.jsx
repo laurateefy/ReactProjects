@@ -2,22 +2,29 @@ import { useState } from 'react'
 import './App.css'
 import Header from './components/Header'
 import Entry from './components/Entry'
+import data from './data.js'
 
 export default function App() {
+  const travelEntries = data.map((travelEntry) => {
+    return (
+      <Entry 
+      img={travelEntry.img}
+      title={travelEntry.title}
+      country={travelEntry.country}
+      googleMapsLink={travelEntry.googleMapsLink}
+      dates={travelEntry.dates}
+      text={travelEntry.text}
+
+      />
+    )
+  })
 
   return (
     <>
-    <Header /> 
-    <Entry 
-      img="https://i.natgeofe.com/n/10b06e7a-949d-4b2a-b7e0-c15ff0e867f0/mtfuji.png"
-      altText="Mount Fuji Image"
-      title="Mount Fuji"
-      country="JAPAN"
-      googleMapsLink="https://www.google.com/maps/place/Mount+Fuji/@35.3606421,138.7170637,15z/data=!3m1!4b1!4m6!3m5!1s0x6019629a42fdc899:0xa6a1fcc916f3a4df!8m2!3d35.3606255!4d138.7273634!16zL20vMGNrczA?entry=ttu"
-      dates="12 Jan, 2021 - 24 Jan, 2021"
-      text="Mount Fuji is the tallest mountain in Japan, standing at 3,776 meters (12,380 feet). Mount Fuji is the single most popular tourist site in Japan, for both Japanese and foreign tourists."
-
-    />
+      <Header /> 
+      <main className="container">
+        {travelEntries}
+      </main>
     </>
   )
 }
