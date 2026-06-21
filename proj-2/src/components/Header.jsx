@@ -6,7 +6,7 @@ export default function Header() {
     <>
     <header>
       <img src={globeImage} alt="Globe" />
-      <h1>my travel journal</h1>
+      <h1>my travel journal.</h1>
     </header>
     </>
   )
